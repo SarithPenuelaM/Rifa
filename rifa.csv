@@ -1,7 +1,7 @@
 numero,nombre,estado
 0,Sarith Peñuela,PAGADO
 1,,
-2,,
+2,Diana Hermana,RESERVADO
 3,,
 4,,
 5,,
@@ -14,7 +14,7 @@ numero,nombre,estado
 12,,
 13,Wilson Peñuela,RESERVADO
 14,,
-15,,
+15,Diana Hermana,RESERVADO
 16,,
 17,,
 18,,
@@ -23,8 +23,8 @@ numero,nombre,estado
 21,,
 22,,
 23,,
-24,,
-25,,
+24,Cristian Mendez,PAGADO
+25,Diana Hermana,RESERVADO
 26,,
 27,,
 28,,
