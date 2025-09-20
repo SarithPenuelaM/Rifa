@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rifa solidaria para Kaira</title>
+  <style>
+    :root{
+      --pad: 2;               /* dígitos por boleto (00–99) */
+      --cols: 10;             /* columnas en grilla */
+      --goal: 200000;         /* meta total COP */
+      --price: 20000;         /* valor boleta COP */
+    }
+    body{ margin:0; font-family:system-ui,Arial; background:#f3f4f6; color:#111827; }
+    header{ background:linear-gradient(135deg,#e9d5ff,#c084fc); color:#4b0082; padding:20px; text-align:center; }
+    header h1{margin:0;font-size:26px}
+    .wrap{max-width:1100px;margin:20px auto;padding:0 16px}
+    .card{background:#fff;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.1);padding:20px;margin-bottom:20px}
+    .kaira{display:flex;flex-wrap:wrap;gap:20px;align-items:center}
+    .kaira img{max-width:260px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+    .kaira .info{flex:1 1 300px}
+    .info h2{margin-top:0;color:#0f172a}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+    .chip{background:#111827;color:#fff;border:1px solid #0b1220;padding:6px 10px;border-radius:999px;font-size:12px}
+
+    .status{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 12px 0}
+    .pill{font-size:12px;background:#eef2ff;border:1px solid #c7d2fe;color:#3730a3;padding:6px 10px;border-radius:999px}
+    .pill.ok{background:#ecfdf5;border-color:#a7f3d0;color:#065f46}
+    .pill.warn{background:#fef3c7;border-color:#fde68a;color:#92400e}
+    .pill.bad{background:#fee2e2;border-color:#fecaca;color:#991b1b}
+
+    .progress{width:100%;height:12px;background:#e5e7eb;border-radius:999px;overflow:hidden}
+    .bar{height:100%;background:linear-gradient(90deg,#22c55e,#16a34a);width:0%}
+    .progress-row{display:flex;gap:12px;align-items:center}
+    .progress-row .amount{font-size:13px;color:#374151;min-width:180px}
+
+    .grid{display:grid;grid-template-columns:repeat(var(--cols),minmax(70px,1fr));gap:10px}
+    .boleto{border:1px solid #e5e7eb;border-radius:12px;padding:10px;text-align:center;font-size:14px;line-height:1.4}
+    .boleto span{display:block;font-size:12px;color:#374151}
+    .disponible{background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46}
+    .pagado{background:#fee2e2;border:1px solid #fca5a5;color:#991b1b}
+    .pendiente{background:#fef3c7;border:1px solid #fcd34d;color:#92400e}
+    .note{font-size:13px;color:#6b7280;margin-top:10px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🐾Rifa solidaria para Kaira🐾</h1>
+    <p>Ayúdanos a cubrir sus gastos médicos</p>
+    <div class="chips">
+      <span class="chip">Rifa de <strong>$ 200.000 COP</strong></span>
+      <span class="chip">Fecha de sorteo: <strong>25 de octubre de 2025</strong></span>
+      <span class="chip">Valor boleta: <strong>$ 20.000</strong></span>
+    </div>
+  </header>
+  <div class="wrap">
+    <section class="card kaira">
+      <img src="foto_kaira.jpg" alt="Kaira" />
+      <div class="info">
+        <h2>Sobre Kaira</h2>
+        <p>Kaira tiene cálculos en la vejiga y riñones, un quiste renal y algunos órganos inflamados según su ecografía.
+        Actualmente necesita una cirugia con urgencia en su vejiga, ademas de los tratamientos para desinflamar sus organos, controles médicos y medicación para mejorar su calidad de vida.</p>
+        <p><strong>🐶💙 Tu apoyo en esta rifa ayudará directamente a sus cuidados 🐶💙</strong></p>
+        <ul style="margin-top:12px; font-size:15px; color:#0f172a; line-height:1.5">
+          <li><strong>Rifa total:</strong> $200.000 COP</li>
+          <li><strong>Valor de cada boleta:</strong> $20.000 COP</li> 
+          <li><strong>Nequi:</strong>3165047289 <strong>Titular</strong> Sandra Ayala</li>
+          <li><strong>Cuenta Ahorros Bancolombia:</strong> 82509325321</li>
+          <li><strong>Fecha del sorteo:</strong> 25 de octubre del 2025 <strong>Juega con la Loteria Boyaca</strong> </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Boletos disponibles</h2>
+      <div class="status">
+        <span id="cntTotal" class="pill">Total: 100</span>
+        <span id="cntPagado" class="pill bad">Pagados: 0</span>
+        <span id="cntPendiente" class="pill warn">Pendientes: 0</span>
+        <span id="cntLibre" class="pill ok">Disponibles: 100</span>
+      </div>
+      <div class="progress-row" style="margin:6px 0 14px 0">
+        <div class="progress"><div id="bar" class="bar"></div></div>
+        <div id="amount" class="amount">$ 0 / $ 200.000</div>
+      </div>
+      <div class="note">La disponibilidad se actualiza automáticamente cada <strong>30 segundos</strong> desde el CSV (o muestra 00–99 como DISPONIBLE si no hay CSV).</div>
+      <div id="boletos" class="grid" style="--cols:10"></div>
+      <div class="note">Formato CSV: <code>numero,nombre,estado</code>. Acepta números como <code>7</code> o <code>07</code>. Estados: <em>PAGADO</em>, <em>PENDIENTE</em> (o "RESERVADO"), vacío = <em>DISPONIBLE</em>.</div>
+    </section>
+  </div>
+
+  <script>
+  // ===== Configuración fija: 00–99 =====
+  const START = 0;          // inicio fijo
+  const TOTAL = 100;        // 100 boletos
+  const PAD = 2;            // dos dígitos
+  const PRICE = 20000;      // $20.000 por boleta
+  const GOAL = 200000;      // $200.000 meta
+
+  // ===== Utilidades =====
+  const pad = (n, w=PAD) => String(n).padStart(w,'0');
+  function parseCSVLine(line){
+    const out=[]; let cur=''; let q=false;
+    for(let i=0;i<line.length;i++){
+      const ch=line[i];
+      if(q){ if(ch==='"'){ if(line[i+1]==='"'){cur+='"'; i++;} else { q=false; } } else cur+=ch; }
+      else { if(ch==='"') q=true; else if(ch===','){ out.push(cur); cur=''; } else cur+=ch; }
+    }
+    out.push(cur); return out;
+  }
+  function parseCSV(text){
+    const lines = text.split(/\r?\n/).filter(Boolean);
+    if(lines.length===0) return [];
+    const hasHeader = /[a-zA-Z]/.test(lines[0]);
+    const rows = hasHeader ? lines.slice(1) : lines;
+    return rows.map(l=>{
+      const [numero,nombre,estado] = parseCSVLine(l);
+      return { numero: String(numero||'').trim(), nombre: (nombre||'').trim(), estado: String(estado||'').trim().toUpperCase() };
+    }).filter(r=>r.numero);
+  }
+  function normalizarEstado(est){
+    const s=(est||'').toUpperCase();
+    if(s==='PAGADO') return 'PAGADO';
+    if(s==='PENDIENTE' || s==='RESERVADO') return 'PENDIENTE';
+    return 'DISPONIBLE';
+  }
+
+  // ===== Render y métricas =====
+  function renderBoletos(data){
+    // Normaliza entrada: admite "7" o "07" -> 7 (número)
+    const map = new Map();
+    for(const d of data){
+      let numStr = String(d.numero||'').replace(/^#/,'');
+      const num = parseInt(numStr, 10);
+      if(Number.isFinite(num)){
+        if(num >= START && num < START + TOTAL){
+          map.set(num, { nombre: d.nombre||'', estado: normalizarEstado(d.estado) });
+        }
+      }
+    }
+
+    const cont = document.getElementById('boletos');
+    cont.innerHTML = '';
+
+    let cPag=0, cPen=0, cLib=0;
+    for(let i=START;i<START+TOTAL;i++){
+      const info = map.get(i) || { nombre:'', estado:'DISPONIBLE' };
+      const est = info.estado;
+      if(est==='PAGADO') cPag++; else if(est==='PENDIENTE') cPen++; else cLib++;
+
+      const div = document.createElement('div');
+      div.className = 'boleto ' + (est==='PAGADO'?'pagado': est==='PENDIENTE'?'pendiente':'disponible');
+      div.innerHTML = `<strong>#${pad(i)}</strong><span>${info.nombre||'Disponible'}</span><span>${est}</span>`;
+      cont.appendChild(div);
+    }
+
+    // Actualizar contadores
+    document.getElementById('cntTotal').textContent = `Total: ${TOTAL}`;
+    document.getElementById('cntPagado').textContent = `Pagados: ${cPag}`;
+    document.getElementById('cntPendiente').textContent = `Pendientes: ${cPen}`;
+    document.getElementById('cntLibre').textContent = `Disponibles: ${cLib}`;
+
+    // Progreso recaudación
+    const recaudado = cPag * PRICE;
+    const pct = Math.max(0, Math.min(100, Math.round((recaudado / GOAL) * 100)));
+    document.getElementById('bar').style.width = pct + '%';
+    document.getElementById('amount').textContent = new Intl.NumberFormat('es-CO', { style:'currency', currency:'COP', maximumFractionDigits:0 }).format(recaudado) + ' / ' + new Intl.NumberFormat('es-CO', { style:'currency', currency:'COP', maximumFractionDigits:0 }).format(GOAL);
+  }
+
+  // ===== Carga CSV con auto-refresh =====
+  async function fetchCSV(url){
+    if(location.protocol === 'file:' && !/^https?:/i.test(url)){
+      throw new Error('Bloqueado por seguridad del navegador. Usa un servidor local o ?csv=URL pública.');
+    }
+    const bust = (url.includes('?')? '&':'?') + '_ts=' + Date.now();
+    const res = await fetch(url + bust, {cache:'no-store', mode:'cors'});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    return await res.text();
+  }
+
+  async function actualizar(){
+    const p = new URLSearchParams(location.search);
+    const csvURL = p.get('csv') || 'rifa.csv';
+    const salud = p.get('salud');
+    const foto = p.get('foto');
+    if(salud){ document.querySelector('.kaira .info p').innerText = decodeURIComponent(salud); }
+    if(foto){ const img=document.querySelector('.kaira img'); img.src=foto; }
+    try{
+      const text = await fetchCSV(csvURL);
+      const datos = parseCSV(text);
+      renderBoletos(datos);
+    }catch(err){
+      // Fallback: todos libres
+      renderBoletos([]);
+      if(location.protocol === 'file:'){
+        console.warn('Abriste como file:// — usa el .bat/.sh o ?csv=URL pública');
+      } else {
+        console.warn('No se pudo leer el CSV:', err);
+      }
+    }
+  }
+
+  // ===== Tests mínimos (no alteran la UI) =====
+  (function tests(){
+    const t1 = parseCSVLine('7,"Ana, M.",PENDIENTE');
+    console.assert(t1[0]==='7' && t1[1]==='Ana, M.' && t1[2]==='PENDIENTE', 'parseCSVLine');
+    const csv = 'numero,nombre,estado\n07,Ana,PENDIENTE\n5,,PAGADO';
+    const arr = parseCSV(csv);
+    console.assert(arr.length===2 && arr[0].numero==='07' && arr[1].estado==='PAGADO', 'parseCSV');
+    console.assert(pad(7) === '07' && pad(99) === '99', 'pad');
+  })();
+
+  // Init + auto-refresh
+  window.addEventListener('DOMContentLoaded', ()=>{
+    if(location.protocol === 'file:'){
+      const bar = document.createElement('div');
+      bar.style.cssText = 'position:fixed;left:12px;right:12px;bottom:12px;background:#111827;color:#fff;padding:10px 12px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.3);z-index:9999;font-size:14px';
+      bar.innerHTML = 'Para que se cargue <b>rifa.csv</b>, abre esta carpeta con un <b>servidor local</b> (usa el .bat/.sh) o pasa <code>?csv=URL_publica</code>. Mostrando 00–99 disponibles por defecto.';
+      document.body.appendChild(bar);
+      setTimeout(()=>bar.remove(), 8000);
+    }
+    actualizar();
+    setInterval(actualizar, 30000);
+  });
+  </script>
+</body>
+</html>
