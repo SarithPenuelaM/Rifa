@@ -3,13 +3,13 @@ numero,nombre,estado
 1,,
 2,Diana Hermana,RESERVADO
 3,,
-4,,
-5,,
+4,Guillermo Palacios,RESERVADO
+5,Elena Morales,RESERVADO
 6,,
 7,,
-8,,
+8,Guillermo Palacios,RESERVADO
 9,,
-10,,
+10,Guillermo Palacios,RESERVADO
 11,,
 12,,
 13,Wilson Peñuela,RESERVADO
@@ -17,9 +17,9 @@ numero,nombre,estado
 15,Diana Hermana,RESERVADO
 16,,
 17,,
-18,,
-19,,
-20,,
+18,Elena Morales,RESERVADO
+19,Elena Morales,RESERVADO
+20,Guillermo Palacios,RESERVADO
 21,,
 22,,
 23,,
@@ -63,8 +63,8 @@ numero,nombre,estado
 61,,
 62,,
 63,Don Luis Transporte,PAGADO
-64,,
-65,,
+64,Guillermo Palacios,RESERVADO
+65,Elena Morales,RESERVADO
 66,,
 67,,
 68,,
@@ -84,7 +84,7 @@ numero,nombre,estado
 82,,
 83,,
 84,,
-85,,
+85,Elena Morales,RESERVADO
 86,,
 87,,
 88,,
