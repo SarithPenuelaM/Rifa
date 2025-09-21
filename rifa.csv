@@ -6,11 +6,11 @@ numero,nombre,estado
 4,Guillermo Palacios,RESERVADO
 5,Elena Morales,RESERVADO
 6,,
-7,carlos Peñuela,RESERVADO
+7,Carlos Peñuela,RESERVADO
 8,Guillermo Palacios,RESERVADO
 9,,
 10,Guillermo Palacios,RESERVADO
-11,carlos Peñuela,RESERVADO
+11,Carlos Peñuela,RESERVADO
 12,Jeniffer Ayala,PAGADO
 13,Wilson Peñuela,RESERVADO
 14,Luz Valencia,RESERVADO
@@ -20,7 +20,7 @@ numero,nombre,estado
 18,Elena Morales,RESERVADO
 19,Elena Morales,RESERVADO
 20,Guillermo Palacios,RESERVADO
-21,,
+21,Carlos Peñuela,RESERVADO
 22,,
 23,,
 24,Cristian Mendez,PAGADO
@@ -30,7 +30,7 @@ numero,nombre,estado
 28,Luz Valencia,RESERVADO
 29,,
 30,,
-31,carlos Peñuela,RESERVADO
+31,Carlos Peñuela,RESERVADO
 32,,
 33,,
 34,,
@@ -42,11 +42,11 @@ numero,nombre,estado
 40,,
 41,MIGUEL AYALA,RESERVADO
 42,,
-43,carlos Peñuela,RESERVADO
+43,Carlos Peñuela,RESERVADO
 44,,
 45,,
 46,,
-47,carlos Peñuela,RESERVADO
+47,,
 48,,
 49,,
 50,,
@@ -54,7 +54,7 @@ numero,nombre,estado
 52,Alejandra Prima Julio,RESERVADO
 53,,
 54,,
-55,carlos Peñuela,RESERVADO
+55,Carlos Peñuela,RESERVADO
 56,Giovanny Mendez,PAGADO
 57,Luz Valencia,RESERVADO
 58,,
@@ -95,7 +95,7 @@ numero,nombre,estado
 93,,
 94,,
 95,,
-96,carlos Peñuela,RESERVADO
+96,Carlos Peñuela,RESERVADO
 97,,
 98,,
 99,Sarith Peñuela,PAGADO
