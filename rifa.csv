@@ -1,6 +1,6 @@
 numero,nombre,estado
 0,Sarith Peñuela,PAGADO
-1,,
+1,Brayan Sanchez,PAGADO
 2,Diana Hermana,RESERVADO
 3,Juliana Reyes,PAGADO
 4,Guillermo Palacios,RESERVADO
@@ -67,7 +67,7 @@ numero,nombre,estado
 65,Elena Morales,RESERVADO
 66,Valeria Peñuela,RESERVADO
 67,Erika Valencia,RESERVADO
-68,,
+68,José Rivera,PAGADO
 69,Wilson Peñuela,RESERVADO
 70,,
 71,,
@@ -89,7 +89,7 @@ numero,nombre,estado
 87,,
 88,,
 89,Erika Valencia,RESERVADO
-90,,
+90,Nicolas Munar,PAGADO
 91,,
 92,,
 93,Martha Restrepo tía,PAGADO
