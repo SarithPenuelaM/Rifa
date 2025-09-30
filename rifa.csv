@@ -1,7 +1,7 @@
 numero,nombre,estado
 0,Sarith Peñuela,PAGADO
 1,Brayan Sanchez,PAGADO
-2,Diana Hermana,RESERVADO
+2,Diana Hermana,PAGADO
 3,Juliana Reyes,PAGADO
 4,Guillermo Palacios,RESERVADO
 5,Elena Morales,RESERVADO
@@ -14,7 +14,7 @@ numero,nombre,estado
 12,Jeniffer Ayala,PAGADO
 13,Wilson Peñuela,RESERVADO
 14,Luz Valencia,RESERVADO
-15,Diana Hermana,RESERVADO
+15,Diana Hermana,PAGADO
 16,Leidy Poveda,RESERVADO
 17,Alba Mamá Claudia,PAGADO
 18,Elena Morales,RESERVADO
@@ -24,7 +24,7 @@ numero,nombre,estado
 22,Edgars Valeria,RESERVADO
 23,Edgars Valeria,RESERVADO
 24,Cristian Mendez,PAGADO
-25,Diana Hermana,RESERVADO
+25,Diana Hermana,PAGADO
 26,Luis Delgado,PAGADO
 27,Luz Valencia,RESERVADO
 28,Luz Valencia,RESERVADO
