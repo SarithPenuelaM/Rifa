@@ -8,7 +8,7 @@ numero,nombre,estado
 6,Diana Regalo Kaira,PAGADO
 7,Carlos Peñuela,RESERVADO
 8,Guillermo Palacios,RESERVADO
-9,,
+9,Patricia Reyes,PAGADO
 10,Guillermo Palacios,RESERVADO
 11,Carlos Peñuela,RESERVADO
 12,Jeniffer Ayala,PAGADO
@@ -49,7 +49,7 @@ numero,nombre,estado
 47,Edu Hernandez,PAGADO
 48,Claudia Valencia,PAGADO
 49,Miguel Ayala,PAGADO
-50,,
+50,Patricia Reyes,PAGADO
 51,Jhon Lamus,PAGADO
 52,Alejandra Prima Julio,RESERVADO
 53,,
@@ -59,7 +59,7 @@ numero,nombre,estado
 57,Luz Valencia,RESERVADO
 58,Allison Muñoz,RESERVADO
 59,Luz Valencia,RESERVADO
-60,,
+60,Patricia Reyes,PAGADO
 61,Bibiana Parque Central,RESERVADO
 62,Carlos Andres Primo,PAGADO
 63,Don Luis Transporte,RESERVADO
@@ -70,7 +70,7 @@ numero,nombre,estado
 68,José Rivera,PAGADO
 69,Wilson Peñuela,RESERVADO
 70,Alejandro Castro,PAGADO
-71,,
+71,Patricia Reyes,PAGADO
 72,Martha Restrepo tía,PAGADO
 73,Carlos Andrés Primo,PAGADO
 74,,
@@ -87,7 +87,7 @@ numero,nombre,estado
 85,Elena Morales,RESERVADO
 86,,
 87,Diego Perez,PAGADO
-88,,
+88,Patricia Reyes,PAGADO
 89,Erika Valencia,RESERVADO
 90,Nicolas Munar,PAGADO
 91,Monica Florez,RESERVADO
@@ -96,6 +96,6 @@ numero,nombre,estado
 94,,
 95,,
 96,Carlos Peñuela,RESERVADO
-97,,
+97,Patricia Reyes,PAGADO
 98,Paola Velasco,PAGADO
 99,Sarith Peñuela,PAGADO
