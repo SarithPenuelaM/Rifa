@@ -12,8 +12,8 @@ numero,nombre,estado
 10,Guillermo Palacios,PAGADO
 11,Carlos Peñuela,PAGADO
 12,Jeniffer Ayala,PAGADO
-13,Wilson Peñuela,RESERVADO
-14,Luz Valencia,RESERVADO
+13,Wilson Peñuela,PAGADO
+14,Luz Valencia,PAGADO
 15,Diana Hermana,PAGADO
 16,Leidy Poveda,RESERVADO
 17,Alba Mamá Claudia,PAGADO
@@ -32,7 +32,7 @@ numero,nombre,estado
 30,Edgars Valeria,PAGADO
 31,Carlos Peñuela,PAGADO
 32,Sarith Peñuela,PAGADO
-33,Valeria Peñuela,RESERVADO
+33,Valeria Peñuela,PAGADO
 34,Sarith Peñuela,PAGADO
 35,Sandra Ortiz,PAGADO
 36,Valeria Peñuela,PAGADO
