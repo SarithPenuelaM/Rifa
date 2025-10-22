@@ -39,13 +39,13 @@ numero,nombre,estado
 37,Maria Fernanda,PAGADO
 38,Erika Valencia,PAGADO
 39,Olga Reyes,RESERVADO
-40,Diana Florez,RESERVADO
+40,Diana Florez,PAGADO
 41,Miguel Ayala,PAGADO
 42,Maria C. Patiño,PAGADO
 43,Carlos Peñuela,PAGADO
 44,Miguel M Bodega,PAGADO
 45,Luisa Bello,PAGADO
-46,Luis Eduardo Liz,RESERVADO
+46,Luis Eduardo Liz,PAGADO
 47,Edu Hernandez,PAGADO
 48,Claudia Valencia,PAGADO
 49,Miguel Ayala,PAGADO
@@ -90,7 +90,7 @@ numero,nombre,estado
 88,Patricia Reyes,PAGADO
 89,Erika Valencia,PAGADO
 90,Nicolas Munar,PAGADO
-91,Monica Florez,RESERVADO
+91,Monica Florez,PAGADO
 92,Geiner Peñuela,PAGADO
 93,Martha Restrepo tía,PAGADO
 94,Geiner Peñuela,PAGADO
